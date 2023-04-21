@@ -1,14 +1,13 @@
-import { StatusBar } from 'expo-status-bar'
+import { NavigationContainer } from '@react-navigation/native'
 
-import { Container, Texto } from './styles'
+import { TabRoutes } from './src/routes'
 
-const App: React.FC = () => {
-  return (
-    <Container>
-      <Texto>Hello, world!</Texto>
-      <StatusBar style="auto" />
-    </Container>
-  )
-}
+const App: React.FC = () => (
+
+  <NavigationContainer>
+    <TabRoutes />
+  </NavigationContainer>
+
+)
 
 export default App
