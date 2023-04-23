@@ -1,3 +1,13 @@
-import { Text } from 'react-native'
+// import { NavBar } from '../../components/NavBar'
+import { Searcher } from '../../components/Searcher'
 
-export const SearchTab: React.FC = () => <Text>SEACRH TAB</Text>
+import { Container } from './styles'
+
+export const SearchTab: React.FC = () => (
+
+    <Container>
+        {/* <NavBar /> */}
+        <Searcher />
+    </Container>
+
+)
