@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 
-// import { SearchContext } from '../../contexts/SearchContext'
+import { SearchContext } from '../../contexts/SearchContext'
 
 import { Input } from './styles'
 
 export const SearchInput: React.FC = () => {
 
-    // const { search, setSearch, fetchNewsOnBackend } = useContext(SearchContext)
-    const [ search, setSearch ] = useState('')
+    const { search, setSearch } = useContext(SearchContext)
+
     return (
 
         <Input
             placeholder="Search"
-            onChangeText={ text => setSearch(text) }
-            value={ search }
+            onChangeText={ searchText => setSearch(searchText) }
+            defaultValue={ search }
         />   
   
     )
