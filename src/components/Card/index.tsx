@@ -1,31 +1,29 @@
-import { Linking, Text, View } from 'react-native'
+import { Linking, Text } from 'react-native'
 
 import { NewsProps } from '../../contexts/SearchContext'
 
-// import { CardContainer, CardHeader, CardTitle, CardContent, Link } from './styles'
+import { CardContainer, CardHeader, NewsDate, NewsRating, NewsLanguage, CardContent, TitleLink } from './styles'
 
 type CardProps = {
-    report: NewsProps,
+    report: NewsProps | any,
 }
 
 export const Card = ({ report }: CardProps) => {
 
-    console.log(report.originalNews.originalTitle)
-
     return (
 
-        <View>
-            <View>
-                <Text onPress={ () => Linking.openURL(report.newsReview[0].urlNews) }>
+        <CardContainer status={report.newsReview[0].textualRating}>
+            <CardHeader>
+                <TitleLink onPress={ () => Linking.openURL(report.newsReview[0].urlNews) }>
                     { report.originalNews.originalTitle }
-                </Text>
-            </View>
-            <View>
-                <Text>Date: { report.originalNews.originalClaimDate }</Text>
-                <Text>Rating: { report.newsReview[0].textualRating }</Text>
-                <Text>Lang: { report.newsReview[0].languageCode }</Text>
-            </View>                        
-        </View>
+                </TitleLink>
+            </CardHeader>
+            <CardContent>
+                <NewsDate>Date: { report.originalNews.originalClaimDate }</NewsDate>
+                <NewsRating>Rating: { report.newsReview[0].textualRating }</NewsRating>
+                <NewsLanguage>Lang: { report.newsReview[0].languageCode }</NewsLanguage>
+            </CardContent>                        
+        </CardContainer>
         
     )
 }

@@ -1,19 +1,18 @@
 import styled from 'styled-components/native'
 
-type CssProps = {
-    variant: string
+type CardContainerColorProps = {
+    status: string
 }
 
 export const CardContainer = styled.View `
 
-    flex: 3;
-    /* row-gap: 10px; */
-    height: 22px;
-    max-width: 230px;
-    padding: 2px;
+    min-height: 160px;
+    height: 177px;
+    max-width: 280px;
+    padding: 8px;
     border-radius: 10px;
 
-    ${({ variant }: CssProps) => variant === 'Verdadeiro'
+    ${({ status }: CardContainerColorProps) => status === 'Verdadeiro'
         ? `
             background-color: #3498DB;
             border-width: 2px;
@@ -22,7 +21,7 @@ export const CardContainer = styled.View `
             color: #21618C; 
         `
         :
-            variant === 'Verdadeiro, mas...' 
+            status === 'Verdadeiro, mas...' 
             ? `
                 background-color: #d67427;
                 border-width: 2px;
@@ -37,32 +36,29 @@ export const CardContainer = styled.View `
                 color: #6e2924; 
             `
     }
-`
-
-export const CardHeader = styled.View `
     
-    padding: 10px;
-
-    Text {
-
-        text-decoration: none;
-        /* :hover {
-            color: white;
-            text-decoration: underline;
-        } */
-    }
-
 `
 
-export const Link = styled.Text ` font-size: 9px; `
+export const CardHeader = styled.View ``
 
-export const CardTitle = styled.Text ` color: #fff; `
+export const TitleLink = styled.Text `
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+`
 
-export const CardContent = styled.Text `
+export const NewsDate = styled.Text `
+    color: #f7f7f7;
+    opacity: 0.75;
+    font-size: 10px;
+    font-weight: 800;
+`
+export const NewsRating = styled(NewsDate)``
+export const NewsLanguage = styled(NewsRating)``
 
-    /* display: grid;
-    grid-template-columns: auto auto; */
-    justify-content: space-between;
-    font-size: 13px;
+export const CardContent = styled.View `
+
+    flex: 1;
+    justify-content: center;
 
 `

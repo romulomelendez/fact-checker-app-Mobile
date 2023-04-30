@@ -1,40 +1,41 @@
 import { useContext } from 'react'
-import { Text, FlatList } from 'react-native'
+import { Text, View } from 'react-native'
 
 import { Logo } from '../../components/Logo'
 import { SearchInput } from '../../components/SearchInput'
 import { Card } from '../../components/Card'
+import { CheckNewsButton } from '../../components/CheckNewsButton'
+import { SearchBar } from '../../components/SearchBar'
 
 import { SearchContext } from '../../contexts/SearchContext'
 
-import { Check } from './styles'
+import { NewsList } from './styles'
 
 export const Searcher: React.FC = () => {
 
-    const { news, fetchNewsOnBackend } = useContext(SearchContext)
+  const { news } = useContext(SearchContext)
 
-    return (
-        <>
-            {
-                news.length != 0
-                  ? 
-                    <FlatList
-                      data={ news }
-                      renderItem={ ({ item }) => <Card report={ item } /> }
-                      extraData={ (item: any) => item.originalNews.originalTitle }
-                    />
-                  : 
-                    <>
-                        <Logo />
-                        <SearchInput />
-                        <Check onPress={ fetchNewsOnBackend }>
-                            <Text style={{ color: 'white' }}>
-                                CHECK
-                            </Text>
-                        </Check>
-                    </>
-            }
-        </>
-    )
-
+  return (
+    <>
+      {
+        news.length != 0
+          ? 
+            <>   
+              <SearchBar />
+              <NewsList
+                data={ news }
+                renderItem={ ({ item }) => <Card report={ item } /> }
+                extraData={ (item: any) => item.originalNews.originalTitle }
+                contentContainerStyle={{ rowGap: 10 }}
+              />
+            </>
+          : 
+            <>
+              <Logo />
+              <SearchInput height={100} width={100} />
+              <CheckNewsButton size={100} origin='Home' />
+            </>
+      }
+    </>
+  )
 }
