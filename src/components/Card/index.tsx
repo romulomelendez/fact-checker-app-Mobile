@@ -1,4 +1,4 @@
-import { Linking, Text } from 'react-native'
+import { Linking } from 'react-native'
 
 import { NewsProps } from '../../contexts/SearchContext'
 

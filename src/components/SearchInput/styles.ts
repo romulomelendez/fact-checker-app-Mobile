@@ -1,9 +1,7 @@
 import styled from "styled-components/native"
 
 type InputSizeProps = {
-
-    inputHeight: number,
-    inputWidth: number
+    inputSize: number
 }
 
 export const Input = styled.TextInput `
@@ -14,13 +12,9 @@ export const Input = styled.TextInput `
     border-radius: 50px;
     border: 2px solid #3498DB;
     max-height: 50px;
+    height: 100%;
     max-width: 300px;
 
-    ${({ inputHeight, inputWidth }: InputSizeProps) => `
-    
-        height: ${inputHeight}%;
-        width: ${inputWidth}%;
-
-    `}
+    ${({ inputSize }: InputSizeProps) => ` width: ${inputSize}%; `}
 
 `

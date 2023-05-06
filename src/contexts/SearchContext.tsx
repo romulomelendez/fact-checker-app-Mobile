@@ -58,9 +58,6 @@ export const SearchProvider = ({ children }: SearchContextProps) => {
               .then(response => response.json())
               .then(newsData => setNews(newsData))
               .catch(error => console.error(error))
-            
-            //Clean input
-            // setSearch('')
 
         } catch (err: any) {
             console.error(err.message)

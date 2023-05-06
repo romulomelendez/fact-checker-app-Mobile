@@ -32,7 +32,7 @@ export const Searcher: React.FC = () => {
           : 
             <>
               <Logo />
-              <SearchInput height={100} width={100} />
+              <SearchInput size={100} />
               <CheckNewsButton size={100} origin='Home' />
             </>
       }

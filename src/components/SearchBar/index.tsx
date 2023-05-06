@@ -6,7 +6,7 @@ import { SearchBarContainer } from './styles'
 export const SearchBar: React.FC = () => (
 
     <SearchBarContainer>
-        <SearchInput height={100} width={85} />
+        <SearchInput size={85} />
         <CheckNewsButton size={20} />
     </SearchBarContainer>
 
