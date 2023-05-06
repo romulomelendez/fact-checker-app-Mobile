@@ -20,7 +20,6 @@ export const HotNewsTab: React.FC = () => {
             try {
     
                 const response = await (await fetch('http://10.0.2.2:5000/hotnews')).json()
-                console.log(response)
                 setArticles(response)
     
             } catch (err: any) {

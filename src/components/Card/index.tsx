@@ -19,9 +19,11 @@ export const Card = ({ report }: CardProps) => {
                 </TitleLink>
             </CardHeader>
             <CardContent>
-                <NewsDate>Date: { report.originalNews.originalClaimDate }</NewsDate>
-                <NewsRating>Rating: { report.newsReview[0].textualRating }</NewsRating>
-                <NewsLanguage>Lang: { report.newsReview[0].languageCode }</NewsLanguage>
+                {
+                    report.originalNews.originalClaimDate != ''
+                      && <NewsDate>Date: { report.originalNews.originalClaimDate }</NewsDate>
+                }
+                <NewsRating>Status: { report.newsReview[0].textualRating }</NewsRating>
             </CardContent>                        
         </CardContainer>
         
